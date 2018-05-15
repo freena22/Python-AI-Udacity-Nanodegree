@@ -35,9 +35,10 @@ def readable_timedelta(days):
 
 
 ######## 3. Variable Scope #######
-# variable scope refers to which parts of a program a variable can be used
-# it's best to define variables in the smallest scope they will be needed in
-
+"""
+variable scope refers to which parts of a program a variable can be used
+it's best to define variables in the smallest scope they will be needed in
+"""
 egg_count = 0
 def buy_eggs():
 	egg_count + = 12
@@ -52,9 +53,21 @@ def buy_eggs(count): # buy a dozen eggs
 egg_count = buy_eggs(egg_count)
 
 
-
 ######## 4. Lambda Expressions #######
+# use lambda expressions to create anonymous functions
 
+double = lambda x: x * 2 
+multipy = lambda x , y : x * y
+multipy(4,7)
+
+# lambda with Filter()
+
+cities = ["New York City", "Los Angeles", "Chicago", "Mountain View", "Denver", "Boston"]
+
+short_cities = list(filter(lambda x: len(x) < 10, cities))
+print(short_cities)
+
+# Output: ['Chicago', 'Denver', 'Boston']
 
 
 ######## 5. Iterators and Generators #######
