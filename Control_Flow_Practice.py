@@ -102,6 +102,58 @@ list(zip(['a', 'b', 'c'], [1, 2, 3]))
 some_list = [('a', 1), ('b', 2), ('c', 3)]
 letters, nums = zip(*some_list)
 
+########## Practice 1 ############ Each string should be formatted as label: x, y, z
+x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+### my answer ###
+
+points = []
+# write your for loop here
+points = list(zip(labels[1:], x_coord, y_coord, z_coord))
+
+for point in points:
+    print(point)
+
+""" Output
+('J', 23, 677, 4)
+('A', 53, 233, 16)
+('Q', 2, 405, -6)
+('Y', -12, 433, -42)
+"""
+
+# Correct answer ###
+
+points = []
+for point in zip(labels, x_coord,y_coord,z_coord):
+  points.append('{}:{},{},{}'.format(*point))
+for point in points:
+  print(point)
+
+""" Output
+F: 23, 677, 4
+J: 53, 233, 16
+A: 2, 405, -6
+Q: -12, 433, -42
+Y: 95, 905, 3
+B: 103, 376, -6
+W: 14, 432, 23
+X: -5, 445, -1
+"""
+
+########## Practice 2 ############ 
+
+# Use zip to transpose data from a 4-by-3 matrix to a 3-by-4 matrix.
+# a useful trick to know
+data = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11))
+
+data_transpose = tuple(zip(*data))
+print(data_transpose)
+
+
+
 # 6. Enumerate -- a built in function that returns an iterator of tuples containing indices and values of a list. 
 
 letters = ['a', 'b', 'c', 'd', 'e']
@@ -115,7 +167,19 @@ for i, letter in enumerate(letters):
 # 3   d
 # 4   e
 
+########## Practice  ############ 
+cast = ["Barney Stinson", "Robin Scherbatsky", "Ted Mosby", "Lily Aldrin", "Marshall Eriksen"]
+heights = [72, 68, 72, 66, 76]
 
+for i, character in enumerate(cast):
+    cast[i] = character + " " + str(heights[i])
+
+print(cast)
+
+### Output:
+# ['Barney Stinson 72', 'Robin Scherbatsky 68', 'Ted Mosby 72', 'Lily Aldrin 66', 'Marshall Eriksen 76']
+
+# 7. List Comprehensions
 
 
 
