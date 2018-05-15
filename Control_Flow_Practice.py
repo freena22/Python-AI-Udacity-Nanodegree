@@ -93,3 +93,29 @@ for healine in headlines:
     break
 print(news_ticker)
 
+# 5. Zip
+
+list(zip(['a', 'b', 'c'], [1, 2, 3]))
+# Output: [('a', 1), ('b', 2), ('c', 3)]
+
+# unzip:
+some_list = [('a', 1), ('b', 2), ('c', 3)]
+letters, nums = zip(*some_list)
+
+# 6. Enumerate -- a built in function that returns an iterator of tuples containing indices and values of a list. 
+
+letters = ['a', 'b', 'c', 'd', 'e']
+for i, letter in enumerate(letters):
+    print(i, letter)
+
+# Output: 
+# 0   a
+# 1   b
+# 2   c
+# 3   d
+# 4   e
+
+
+
+
+
