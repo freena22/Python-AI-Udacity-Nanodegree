@@ -1,7 +1,6 @@
 # Numpy
 
-"""
-Why Use Numpy?
+""" Why Use Numpy?
 
 Numpy can make a difference of orders of magnitude in computation time.
 
@@ -12,6 +11,7 @@ A lot of machine learning algorithms rely on matrix operations.
 For example, when training a Neural Network, you often have to carry out many matrix multiplications. 
 NumPy is optimized for matrix operations and it allows us to do Linear Algebra operations effectively and efficiently, 
 making it very suitable for solving machine learning problems.
+
 """
 import time
 import numpy as np
@@ -30,7 +30,9 @@ print(time.time() - start)
 
 # Output: 0.04637503623962402
 
-##### Creating Numpy ndarrays #####
+
+############### Creating Numpy ndarrays ################
+
 
 x = np.array([1,2,3,4,5])  # 1D ndarray that contains only integers
 print('x = ', x)  # x = [1,2,3,4,5]
@@ -56,7 +58,7 @@ np.save('my_array', x)
 
 y = np.load('my_array.npy')
 
-########## Using Built-in Functions to Create ndarrays
+########## Using Built-in Functions to Create ndarrays ##########
 
 # create matrixs
 x = np.zero((3,4))
@@ -97,6 +99,83 @@ x = np.arange(20).reshape((4,5)). # in one line code
 x = np.random.randint(4,15,size=(3,2))
 
 x = np.random.normal(0, 0.1, size=(1000,1000)) # for normal distribution
+
+########## Accessing, Deleting, and Inserting Elements Into ndarrays ##########
+
+x = np.array([1,2,3,4,5])
+
+print('1st element: ', x[0])
+
+# change the element
+x[3] = 20
+
+# change in matrix
+x = np.arange(1,10).reshape(3,3)
+
+print('Element at (0,1):', x[0,1])
+
+# delete the element
+
+np.delete(Y, 0, axis = 0)  # delete the first row of y
+np.delete(Y, [0,2], axis = 1)  # delete the first and last column of y
+
+
+# append the integer 7 and 8 to x
+np.append(x, [7,8])
+
+# insert the integer 3 and 4 between 2 and 5 in x
+np.insert(x,2,[3,4])
+
+# stack ndarrays on top of each other -- vertical stacking
+np.vstack((x,Y))  # stack x on top of Y
+
+# stack ndarrays side by side  --  horizontal stacking
+
+np.hstack((Y, x.reshape(2,1)))  # stack x on the right of Y, we need to reshape x in order to stack it on the right of Y
+
+################ Slicing ndarrays ###################
+
+Z = X[1:4, 2:5]
+
+# X and Z are now just two different names for the same ndarray.
+# If we make changes in Z it will be in effect changing the elements in X as well.
+
+# If we want to create a new ndarray that contains a copy of the values we need to use np.copy()
+
+Z = np.copy(X[1:4, 2:5])
+
+# extract only the unique elements in an ndarray 
+np.unique(X)
+
+
+############## Boolean Indexing, Set Operations, and Sorting ##############
+
+# use Boolean indexing to assign the elements that are between 10 and 17 the value of -1
+X[(X > 10) & (X <17)] = - 1
+
+np.intersect1d(x,y) # elements both in x and y
+
+np.setdiff1d(x,y) # elements in x but not in y
+
+np.union1d(x,y) # all the elemnts of x and y
+
+# sort x but only keep the unqiue elements in x
+
+np.sort(np.unique(x))
+
+# Create a 5 x 5 ndarray with consecutive integers from 1 to 25 (inclusive)
+# Use Boolean indexing to pick out only the odd numbers in the array
+
+X = np.arange(1,26).reshape(5,5)
+Y = X[X % 2 != 0]
+
+############## Arithmetic operations and Broadcasting ##############
+
+# use Broadcasting to create a 4 x 4 ndarray that has its first column full of 1s, second column full of 2s...
+X = np.ones((4,4)) * np.arange(1,5)
+
+
+
 
 
 
